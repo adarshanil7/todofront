@@ -106,20 +106,20 @@ export default function App() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-100 to-blue-100 py-8 px-4">
+    <div className="min-h-screen bg-gradient-to-br from-indigo-100 via-purple-100 to-pink-100 py-12 px-4">
       <div className="max-w-3xl mx-auto">
-        <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
+        <div className="bg-white/90 backdrop-blur-sm rounded-3xl shadow-2xl overflow-hidden border border-white/20">
           {/* Header */}
-          <div className="bg-gradient-to-r from-purple-500 to-blue-500 p-8">
-            <h1 className="text-3xl font-bold text-white text-center mb-2">Todo List</h1>
-            <p className="text-white/80 text-center">Stay organized and productive</p>
+          <div className="bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 p-10">
+            <h1 className="text-4xl font-extrabold text-white text-center mb-3 tracking-tight">Todo List</h1>
+            <p className="text-white/90 text-center text-lg font-medium">Organize your day, achieve your goals</p>
           </div>
 
           {/* Main Content */}
-          <div className="p-6">
+          <div className="p-8">
             {error && (
-              <div className="bg-red-50 border-l-4 border-red-500 p-4 mb-6 rounded">
-                <div className="flex">
+              <div className="bg-red-50 border-l-4 border-red-500 p-4 mb-8 rounded-lg">
+                <div className="flex"> 
                   <div className="flex-shrink-0">
                     <svg className="h-5 w-5 text-red-400" viewBox="0 0 20 20" fill="currentColor">
                       <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
@@ -133,7 +133,7 @@ export default function App() {
             )}
 
             {/* Task Input */}
-            <div className="mb-6">
+            <div className="mb-8">
               <TaskInput addTask={addTask} />
             </div>
 
