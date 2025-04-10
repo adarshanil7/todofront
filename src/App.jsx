@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import TaskInput from "./components/TaskInput";
 import TaskList from "./components/TaskList";
 
-const API_URL = "https://todoback-i34c.onrender.comhttps://todolist-backend-pomx.onrender.com/tasks";
+const API_URL = "https://todoback-i34c.onrender.com/tasks";
 
 
 export default function App() {
