@@ -16,62 +16,62 @@ export default function TaskList({ tasks, toggleTask, editTask, deleteTask }) {
   };
 
   return (
-    <div className="space-y-4">
+    <div className="mt-4">
       {tasks.map((task) => (
         <div
           key={task._id}
-          className={`group flex items-center p-5 bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-white/20 ${
-            task.completed ? "bg-gray-50/80" : ""
+          className={`d-flex align-items-center p-3 mb-3 bg-white rounded shadow-sm ${
+            task.completed ? "bg-light" : ""
           }`}
         >
           <button
-            className={`flex-shrink-0 mr-4 focus:outline-none transition-all duration-300 transform hover:scale-110 ${
-              task.completed ? "text-indigo-500" : "text-gray-400 hover:text-indigo-500"
+            className={`btn btn-sm me-3 ${
+              task.completed ? "text-success" : "text-secondary"
             }`}
             onClick={() => toggleTask(task._id, task.completed)}
           >
-            {task.completed ? <FaCheckCircle size={24} /> : <FaRegCircle size={24} />}
+            {task.completed ? <FaCheckCircle size={20} /> : <FaRegCircle size={20} />}
           </button>
 
           {editingId === task._id ? (
             <input
               type="text"
-              className="flex-1 p-3 bg-white/90 border-2 border-indigo-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:border-transparent transition-all duration-200 shadow-inner"
+              className="form-control me-3"
               value={editText}
               onChange={(e) => setEditText(e.target.value)}
               autoFocus
             />
           ) : (
             <span
-              className={`flex-1 text-gray-700 text-lg font-medium ${
-                task.completed ? "line-through text-gray-400" : ""
+              className={`flex-grow-1 ${
+                task.completed ? "text-decoration-line-through text-muted" : ""
               }`}
             >
               {task.text}
             </span>
           )}
 
-          <div className="flex items-center space-x-3 opacity-0 group-hover:opacity-100 transition-all duration-300">
+          <div className="d-flex gap-2">
             {editingId === task._id ? (
               <button
-                className="p-2.5 text-indigo-500 hover:text-indigo-600 focus:outline-none rounded-xl hover:bg-indigo-50 transition-all duration-200 transform hover:scale-105"
+                className="btn btn-success btn-sm"
                 onClick={() => saveEdit(task._id)}
               >
-                <FaCheckCircle size={20} />
+                <FaCheckCircle size={16} />
               </button>
             ) : (
               <button
-                className="p-2.5 text-indigo-500 hover:text-indigo-600 focus:outline-none rounded-xl hover:bg-indigo-50 transition-all duration-200 transform hover:scale-105"
+                className="btn btn-primary btn-sm"
                 onClick={() => startEditing(task._id, task.text)}
               >
-                <FaEdit size={20} />
+                <FaEdit size={16} />
               </button>
             )}
             <button
-              className="p-2.5 text-rose-500 hover:text-rose-600 focus:outline-none rounded-xl hover:bg-rose-50 transition-all duration-200 transform hover:scale-105"
+              className="btn btn-danger btn-sm"
               onClick={() => deleteTask(task._id)}
             >
-              <FaTrash size={20} />
+              <FaTrash size={16} />
             </button>
           </div>
         </div>
